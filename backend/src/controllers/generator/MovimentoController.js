@@ -1,5 +1,5 @@
-const Movimento  = require('../models/Movimento');
-const Conta  = require('../models/Conta');
+const Movimento  = require('../../models/Movimento');
+const Conta  = require('../../models/Conta');
 
 module.exports = {
     async index(req,res){

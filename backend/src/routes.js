@@ -1,11 +1,12 @@
 const express = require('express');
 const routes = express.Router();
-const ContaController = require ('./controllers/ContaController');
-const MovimentoController = require ('./controllers/MovimentoController');
-const Debito  = require('./controllers/DebitoController');
-const Credito  = require('./controllers/CreditoController');
-const Saque  = require('./controllers/SaqueController');
-const Deposito  = require('./controllers/DepositoController');
+const ContaController = require ('./controllers/generator/ContaController');
+const MovimentoController = require ('./controllers/generator/MovimentoController');
+const Debito  = require('./controllers/generator/DebitoController');
+const Credito  = require('./controllers/generator/CreditoController');
+const Saque  = require('./controllers/functions/SaqueController');
+const Deposito  = require('./controllers/functions/DepositoController');
+const Transferencia  = require('./controllers/functions/TransferenciaController');
 
 
 routes.get('/contas',ContaController.index);
@@ -19,6 +20,10 @@ routes.post('/credito',Credito.store);
 
 routes.post('/saque',Saque.store);
 routes.post('/deposito',Deposito.store);
+
+routes.post('/transferencia/:numAgenciaDestino/:numContaDestino',Transferencia.store);
+
+
 
 
 module.exports = routes;
