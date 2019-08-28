@@ -1,4 +1,4 @@
-const Conta = require('../models/Conta');
+const Conta = require('../../models/Conta');
 const axios = require('axios');
 
 module.exports = {
@@ -31,6 +31,6 @@ module.exports = {
         axios(configCredito);
         const movimento = axios(configMovimento);
 
-        return res.json(movimento.data);
+        return res.json("Depósito efetuado com sucesso!");
     }
 };

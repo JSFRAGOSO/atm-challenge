@@ -1,5 +1,5 @@
 const axios = require('axios');
-const Conta  = require('../models/Conta');
+const Conta  = require('../../models/Conta');
 
 module.exports = {
     async store(req,res){

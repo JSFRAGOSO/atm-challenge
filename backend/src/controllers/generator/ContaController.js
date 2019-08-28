@@ -1,4 +1,4 @@
-const Conta  = require('../models/Conta');
+const Conta  = require('../../models/Conta');
 
 module.exports = {
     async index(req,res){
