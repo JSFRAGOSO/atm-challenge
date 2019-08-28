@@ -7,6 +7,7 @@ const Credito  = require('./controllers/generator/CreditoController');
 const Saque  = require('./controllers/functions/SaqueController');
 const Deposito  = require('./controllers/functions/DepositoController');
 const Transferencia  = require('./controllers/functions/TransferenciaController');
+const Extrato  = require('./controllers/functions/ExtratoController');
 
 
 routes.get('/contas',ContaController.index);
@@ -21,7 +22,9 @@ routes.post('/credito',Credito.store);
 routes.post('/saque',Saque.store);
 routes.post('/deposito',Deposito.store);
 
-routes.post('/transferencia/:numAgenciaDestino/:numContaDestino',Transferencia.store);
+routes.post('/contas/:numAgenciaDestino/:numContaDestino/transferencia',Transferencia.store);
+
+routes.get('/contas/:agencia/:numero/extrato',Extrato.index);
 
 
 
