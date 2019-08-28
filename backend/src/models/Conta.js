@@ -13,6 +13,10 @@ const ContaSchema = new Schema({
         type:Number,
         required:false
     },
+    movimentos:[{
+        type:Schema.Types.ObjectId,
+        ref:'Movimento'
+    }]
 },{
     timestamps:true   
 });
