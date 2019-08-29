@@ -7,7 +7,6 @@ const server = express();
 
 mongoose.connect('mongodb://localhost/local',{useNewUrlParser:true});
 
-
 server.use(express.json());
 server.use(routes);
 server.listen(3333)

@@ -3,6 +3,8 @@ const axios = require('axios');
 
 module.exports = {
     async store(req,res){
+        var movimento = {};
+        var credito = {};
         const {numAgencia,numConta,valorDeposito} = req.body;
 
         const conta =  await Conta.findOne({
@@ -28,9 +30,15 @@ module.exports = {
                    "idconta":conta._id}
         };
 
-        axios(configCredito);
-        const movimento = axios(configMovimento);
+        await axios(configCredito).then((response)=>{
+            credito = response.status;    
+        });
+        
+        console.log(credito);
 
-        return res.json("Depósito efetuado com sucesso!");
+        await axios(configMovimento).then((response)=>{
+            movimento = response.data;    
+        });
+        return res.json(movimento);
     }
 };
